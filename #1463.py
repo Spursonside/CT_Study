@@ -1,16 +1,14 @@
 N = int(input())
-s = [N]
+
+cache = {1: 0, 2: 1}
 cnt = 0
 
-while True:
-    if N == 1:
-        break
-    if N % 3 == 0:
-        N = N/3
-    elif N % 2 == 0:
-        N = N/2
-    else:
-        N -= 1
-    cnt += 1
+def dp(n):
+    if n in cache:
+        return cache[n]
 
-print(cnt)
+    cnt = 1 + min(dp(n // 3) + n % 3, dp(n // 2) + n % 2)
+    cache[n] = cnt
+    return cnt
+
+print(dp(N))
