@@ -1,4 +1,4 @@
-#"""
+"""
 for i in range(A):
     for j in range(i):
         if Ai[i] > Ai[j]:
